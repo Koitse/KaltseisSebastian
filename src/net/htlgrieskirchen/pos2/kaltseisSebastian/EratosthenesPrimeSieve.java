@@ -20,12 +20,12 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
     public boolean isPrime(int p) {
 
         boolean isprime;
-        for (int i = p; i < prime.size() ; i++) {
+        for (int i = p; i < prime.get(menge) ; i++) {
 
-            if (p <= 0) {
+            if (prime.get(menge)  <= 0) {
                 isprime = false;
             } else {
-                if (p == 1 || p == 2) {
+                if (prime.get(menge) == 1 || p == 2) {
                     isprime = true;
 
 
@@ -42,9 +42,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
             }
 
             if (isprime) {
-                System.out.println(p + " " + "Primzahl");
-            } else {
-                System.out.println(p + " " + "keine Primzahl");
+               printPrimes();
             }
         }
       return true;
@@ -52,9 +50,10 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public void printPrimes() {
-        for (Integer o:prime) {
-            System.out.println(o);
-
+        for (int i = 0; i < prime.get(menge); i++) {
+            counter++;
+            isPrime(prime.get(menge));
+            System.out.println(counter);
         }
     }
 }
